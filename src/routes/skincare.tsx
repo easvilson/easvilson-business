@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { company, skincareCatalogs } from "@/content/site";
+import { company, skincareBanners, skincareCatalogs } from "@/content/site";
 import { PageShell } from "@/components/shell";
+import { Banner } from "@/components/banner";
 
 export const Route = createFileRoute("/skincare")({
   head: () => ({
@@ -23,6 +24,7 @@ function orderHref(name: string) {
 function SkincarePage() {
   return (
     <PageShell>
+      <Banner label="Skincare" slides={skincareBanners} accent="text-[#f0c7b4]" />
       <article>
         <header className="mx-auto max-w-6xl px-5 py-16 md:py-24">
           <p className="text-xs font-semibold uppercase tracking-widest text-skin-deep">Skincare</p>

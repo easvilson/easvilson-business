@@ -223,6 +223,30 @@ export const skincareCatalogs = [
   },
 ] as const;
 
+export const skincareBanners = [
+  {
+    image: "/media/skin-rosto.jpg",
+    alt: "Produtos de skincare para o rosto: limpeza, sérum e hidratante",
+    title: "Rosto",
+    text: "Limpeza, sérum e hidratação.",
+    fit: "cover",
+  },
+  {
+    image: "/media/skin-corpo.jpg",
+    alt: "Produtos de skincare para o corpo: loção, óleo e manteiga",
+    title: "Corpo",
+    text: "Loção, óleo e manteiga corporal.",
+    fit: "cover",
+  },
+  {
+    image: "/media/skin-protecao.jpg",
+    alt: "Protetor solar em tubo e spray",
+    title: "Proteção",
+    text: "Proteção para o rosto e para o corpo.",
+    fit: "cover",
+  },
+] as const;
+
 export const banners = [
   {
     image: "/media/banner-easvilson.jpg",

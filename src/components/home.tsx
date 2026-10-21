@@ -1,9 +1,7 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   BarChart3,
   Cable,
-  ChevronLeft,
-  ChevronRight,
   Cloud,
   Code2,
   FileText,
@@ -33,6 +31,7 @@ import {
   services,
 } from "@/content/site";
 import { useSite } from "@/lib/site-context";
+import { Banner } from "@/components/banner";
 import { AngolaMap } from "@/components/angola-map";
 import { DashboardPreview, PhonePreview, ReportPreview } from "@/components/dashboard";
 
@@ -59,106 +58,6 @@ function Section({
         {eyebrow ? <p className="text-xs font-semibold uppercase tracking-widest text-brand-deep">{eyebrow}</p> : null}
         {title ? <h2 className="mt-3 max-w-3xl font-display text-3xl font-semibold text-balance md:text-4xl">{title}</h2> : null}
         <div className={title || eyebrow ? "mt-10" : ""}>{children}</div>
-      </div>
-    </section>
-  );
-}
-
-function RotatingBanner() {
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const count = banners.length;
-  const slide = banners[index] ?? banners[0];
-
-  useEffect(() => {
-    if (paused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % count);
-    }, 3000);
-    return () => window.clearInterval(id);
-  }, [paused, count, index]);
-
-  function go(next: number) {
-    setIndex((next + count) % count);
-  }
-
-  return (
-    <section
-      aria-roledescription="carrossel"
-      aria-label="Destaques"
-      id="inicio"
-      className="relative scroll-mt-24 bg-ink"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
-      }}
-      onKeyDown={(event) => {
-        if (event.key === "ArrowLeft") {
-          event.preventDefault();
-          go(index - 1);
-        }
-        if (event.key === "ArrowRight") {
-          event.preventDefault();
-          go(index + 1);
-        }
-      }}
-    >
-      <div className="banner-frame relative overflow-hidden">
-        {banners.map((item, itemIndex) => (
-          <div
-            key={item.image}
-            className={`banner-fade absolute inset-0 ${itemIndex === index ? "opacity-100" : "pointer-events-none opacity-0"}`}
-            aria-hidden={itemIndex !== index}
-          >
-            <img
-              src={item.image}
-              alt={itemIndex === index ? item.alt : ""}
-              className={`size-full object-cover ${item.fit === "contain" ? "object-center" : "object-top"}`}
-            />
-            {item.fit === "contain" ? null : <div className="banner-scrim absolute inset-0" />}
-          </div>
-        ))}
-        {slide.fit === "contain" ? null : (
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 px-16 pb-16 md:px-24">
-            <div className="mx-auto max-w-6xl text-paper" aria-live="polite">
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand">{slide.title}</p>
-              <p className="mt-2 max-w-xl font-display text-2xl font-semibold text-balance md:text-4xl">{slide.text}</p>
-            </div>
-          </div>
-        )}
-        <button
-          type="button"
-          aria-label="Imagem anterior"
-          onClick={() => go(index - 1)}
-          className="absolute top-1/2 left-3 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-paper text-ink shadow-soft md:left-5"
-        >
-          <ChevronLeft className="size-5" aria-hidden="true" />
-        </button>
-        <button
-          type="button"
-          aria-label="Imagem seguinte"
-          onClick={() => go(index + 1)}
-          className="absolute top-1/2 right-3 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-paper text-ink shadow-soft md:right-5"
-        >
-          <ChevronRight className="size-5" aria-hidden="true" />
-        </button>
-        <div className="absolute inset-x-0 bottom-3 flex justify-center">
-          {banners.map((item, itemIndex) => (
-            <button
-              key={item.image}
-              type="button"
-              aria-label={`Mostrar ${item.title}`}
-              aria-current={itemIndex === index ? "true" : undefined}
-              onClick={() => go(itemIndex)}
-              className="grid size-11 place-items-center"
-            >
-              <span className={`block h-1.5 rounded-full ${itemIndex === index ? "w-6 bg-brand" : "w-1.5 bg-paper/70"}`} />
-            </button>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -292,7 +191,7 @@ export function HomePage() {
 
   return (
     <>
-      <RotatingBanner />
+      <Banner id="inicio" label="Destaques" slides={banners} />
       <section className="bg-paper">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:py-24 lg:grid-cols-2">
           <div data-reveal>
