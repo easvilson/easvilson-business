@@ -117,7 +117,7 @@ function RotatingBanner() {
             <img
               src={item.image}
               alt={itemIndex === index ? item.alt : ""}
-              className={`size-full ${item.fit === "contain" ? "object-contain" : "object-cover object-top"}`}
+              className={`size-full object-cover ${item.fit === "contain" ? "object-center" : "object-top"}`}
             />
             {item.fit === "contain" ? null : <div className="banner-scrim absolute inset-0" />}
           </div>

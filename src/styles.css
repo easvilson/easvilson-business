@@ -63,8 +63,13 @@
 }
 
 .banner-frame {
-  aspect-ratio: 1922 / 424;
-  height: auto;
+  height: 22rem;
+}
+
+@media (min-width: 768px) {
+  .banner-frame {
+    height: 32rem;
+  }
 }
 
 .banner-fade {
