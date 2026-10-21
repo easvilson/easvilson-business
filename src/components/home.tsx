@@ -31,7 +31,6 @@ import {
   reasons,
   sectors,
   services,
-  skincare,
 } from "@/content/site";
 import { useSite } from "@/lib/site-context";
 import { AngolaMap } from "@/components/angola-map";
@@ -76,7 +75,7 @@ function RotatingBanner() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       setIndex((current) => (current + 1) % count);
-    }, 15000);
+    }, 3000);
     return () => window.clearInterval(id);
   }, [paused, count, index]);
 
@@ -392,29 +391,6 @@ export function HomePage() {
           <img src="/media/rfid.jpg" alt="Cartão RFID e tag" className="mx-auto max-h-80 w-full object-contain" />
           <figcaption className="px-5 py-4 text-sm text-muted">Cartão RFID e tag para identificação de colaboradores.</figcaption>
         </figure>
-      </Section>
-
-      <Section id="skincare" eyebrow="Skincare" title="Produtos de cuidado da pele.">
-        <p className="max-w-2xl text-pretty text-muted">
-          Além da tecnologia, a Easvilson Business disponibiliza produtos de skincare. A lista muda; confirme a
-          disponibilidade no pedido.
-        </p>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {skincare.map((item) => (
-            <article key={item.title} className="rounded-3xl border border-line bg-paper p-5 shadow-soft">
-              <h3 className="font-display text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm text-pretty text-muted">{item.text}</p>
-            </article>
-          ))}
-        </div>
-        <a
-          href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Olá. Quero a lista de produtos de skincare.")}`}
-          className="mt-8 inline-flex h-11 items-center rounded-full bg-brand px-5 text-sm font-semibold text-ink"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Pedir catálogo no WhatsApp
-        </a>
       </Section>
 
       <Section id="assidupro" eyebrow="AssiduPro" title="Gestão de presença num painel só." tone="mist">

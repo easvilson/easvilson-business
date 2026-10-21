@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as HistoriaRouteImport } from './routes/historia'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
+import { Route as SkincareRouteImport } from './routes/skincare'
 import { Route as TermosRouteImport } from './routes/termos'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const QuemSomosRoute = QuemSomosRouteImport.update({
   path: '/quem-somos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SkincareRoute = SkincareRouteImport.update({
+  id: '/skincare',
+  path: '/skincare',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermosRoute = TermosRouteImport.update({
   id: '/termos',
   path: '/termos',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/historia': typeof HistoriaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/quem-somos': typeof QuemSomosRoute
+  '/skincare': typeof SkincareRoute
   '/termos': typeof TermosRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/historia': typeof HistoriaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/quem-somos': typeof QuemSomosRoute
+  '/skincare': typeof SkincareRoute
   '/termos': typeof TermosRoute
 }
 export interface FileRoutesById {
@@ -61,15 +69,24 @@ export interface FileRoutesById {
   '/historia': typeof HistoriaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/quem-somos': typeof QuemSomosRoute
+  '/skincare': typeof SkincareRoute
   '/termos': typeof TermosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/historia' | '/privacidade' | '/quem-somos' | '/termos'
+  fullPaths:
+    '/' | '/historia' | '/privacidade' | '/quem-somos' | '/skincare' | '/termos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/historia' | '/privacidade' | '/quem-somos' | '/termos'
+  to:
+    '/' | '/historia' | '/privacidade' | '/quem-somos' | '/skincare' | '/termos'
   id:
-    '__root__' | '/' | '/historia' | '/privacidade' | '/quem-somos' | '/termos'
+    | '__root__'
+    | '/'
+    | '/historia'
+    | '/privacidade'
+    | '/quem-somos'
+    | '/skincare'
+    | '/termos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +94,7 @@ export interface RootRouteChildren {
   HistoriaRoute: typeof HistoriaRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   QuemSomosRoute: typeof QuemSomosRoute
+  SkincareRoute: typeof SkincareRoute
   TermosRoute: typeof TermosRoute
 }
 
@@ -110,6 +128,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuemSomosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/skincare': {
+      id: '/skincare'
+      path: '/skincare'
+      fullPath: '/skincare'
+      preLoaderRoute: typeof SkincareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/termos': {
       id: '/termos'
       path: '/termos'
@@ -125,6 +150,7 @@ const rootRouteChildren: RootRouteChildren = {
   HistoriaRoute: HistoriaRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   QuemSomosRoute: QuemSomosRoute,
+  SkincareRoute: SkincareRoute,
   TermosRoute: TermosRoute,
 }
 export const routeTree = rootRouteImport

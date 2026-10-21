@@ -41,7 +41,7 @@ export const defaultSite: SiteContent = {
     "Soluções completas para controlo de presença, gestão de colaboradores, instalação de equipamentos e integração com leitores RFID e biométricos.",
   about: {
     lead: "Empresa angolana de tecnologia para presença, acesso e integração de equipamentos.",
-    body: "A Easvilson Business desenvolve software e acompanha a instalação de leitores biométricos e RFID. O trabalho é tornar o controlo de assiduidade simples de operar e claro para a gestão — na cloud ou na rede local da organização. Também fazemos sites, software e aplicações Android à medida, e disponibilizamos produtos de skincare.",
+    body: "A Easvilson Business desenvolve software e acompanha a instalação de leitores biométricos e RFID. O trabalho é tornar o controlo de assiduidade simples de operar e claro para a gestão — na cloud ou na rede local da organização. Também fazemos sites, software e aplicações Android à medida.",
     storyTitle: "A nossa história",
     story:
       "A Easvilson Business nasce de uma necessidade concreta: muitas organizações ainda controlam a presença com folhas de ponto, chamadas e registos dispersos.\n\nA resposta junta software e equipamento. O AssiduPro organiza colaboradores, registos e relatórios. O AssiduLocal serve quem prefere operar dentro da própria rede. Os leitores biométricos e RFID fecham o circuito, da entrada até ao painel.\n\nO serviço não termina na entrega. Montamos, configuramos, formamos quem vai usar o sistema e ficamos disponíveis para suporte.",
@@ -187,18 +187,39 @@ export const sectors = [
   { title: "Indústria", image: "/media/industria.jpg", alt: "Entrada de uma unidade industrial" },
 ] as const;
 
-export const skincare = [
+export const skincareCatalogs = [
   {
-    title: "Cuidado do rosto",
-    text: "Produtos de skincare para o rosto. A disponibilidade confirma-se no pedido.",
+    id: "rosto",
+    title: "Rosto",
+    text: "Limpeza, tratamento e hidratação.",
+    items: [
+      { name: "Limpeza facial", text: "Gel ou espuma para a lavagem diária." },
+      { name: "Tónico", text: "O passo a seguir à limpeza." },
+      { name: "Sérum", text: "Tratamento concentrado para o rosto." },
+      { name: "Hidratante", text: "Creme ou loção de dia e de noite." },
+      { name: "Contorno de olhos", text: "Cuidado da zona dos olhos." },
+    ],
   },
   {
-    title: "Cuidado do corpo",
-    text: "Linha de corpo, encomendada directamente à Easvilson Business.",
+    id: "corpo",
+    title: "Corpo",
+    text: "Hidratação e cuidado da pele do corpo.",
+    items: [
+      { name: "Gel de banho", text: "Limpeza suave para o duche." },
+      { name: "Loção corporal", text: "Hidratação depois do banho." },
+      { name: "Manteiga corporal", text: "Textura mais rica para a pele seca." },
+      { name: "Óleo corporal", text: "Acabamento leve na pele." },
+    ],
   },
   {
-    title: "Proteção diária",
-    text: "Proteção para o dia a dia. Peça a lista actualizada antes de encomendar.",
+    id: "protecao",
+    title: "Proteção",
+    text: "Proteção para o dia a dia.",
+    items: [
+      { name: "Protetor solar rosto", text: "Uso diário no rosto." },
+      { name: "Protetor solar corpo", text: "Proteção para braços, pernas e tronco." },
+      { name: "Bálsamo labial", text: "Proteção dos lábios." },
+    ],
   },
 ] as const;
 
@@ -261,5 +282,6 @@ export const nav = [
   { id: "servicos", label: "Serviços", href: "/#servicos" },
   { id: "quem-somos", label: "Quem somos", href: "/quem-somos" },
   { id: "historia", label: "História", href: "/historia" },
+  { id: "skincare", label: "Skincare", href: "/skincare" },
   { id: "contacto", label: "Contacto", href: "/#contacto" },
 ] as const;

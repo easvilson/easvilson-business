@@ -84,10 +84,12 @@ export function normalizeSite(input: unknown): SiteContent {
     about: {
       lead: line(data.about.lead, 280, base.lead),
       body: (() => {
-        const previous =
-          "A Easvilson Business desenvolve software e acompanha a instalação de leitores biométricos e RFID. O trabalho é tornar o controlo de assiduidade simples de operar e claro para a gestão — na cloud ou na rede local da organização.";
+        const previous = [
+          "A Easvilson Business desenvolve software e acompanha a instalação de leitores biométricos e RFID. O trabalho é tornar o controlo de assiduidade simples de operar e claro para a gestão — na cloud ou na rede local da organização.",
+          "A Easvilson Business desenvolve software e acompanha a instalação de leitores biométricos e RFID. O trabalho é tornar o controlo de assiduidade simples de operar e claro para a gestão — na cloud ou na rede local da organização. Também fazemos sites, software e aplicações Android à medida, e disponibilizamos produtos de skincare.",
+        ];
         const body = line(data.about.body, 900, base.body);
-        return body === previous ? base.body : body;
+        return previous.includes(body) ? base.body : body;
       })(),
       storyTitle: line(data.about.storyTitle, 80, base.storyTitle),
       story: (() => {

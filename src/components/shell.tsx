@@ -42,19 +42,22 @@ export function Header() {
   }, [pathname]);
 
   const demo = itemHref(pathname, "/#contacto");
+  const onSkin = pathname === "/skincare";
+  const ctaHref = onSkin ? "#catalogos" : demo;
+  const ctaLabel = onSkin ? "Ver catálogos" : "Solicitar Demonstração";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
+    <header className={`sticky top-0 z-40 border-b backdrop-blur ${onSkin ? "border-skin-line bg-skin/95" : "border-line bg-paper/95"}`}>
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-5">
         <a href={itemHref(pathname, "/#inicio")} className="shrink-0" aria-label="Easvilson Business, início">
           <img src="/media/logo.png" alt="" className="h-10 w-auto" />
         </a>
-        <nav className="hidden items-center gap-5 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-4 lg:flex" aria-label="Principal">
           {nav.map((item) => (
             <a
               key={item.id}
               href={itemHref(pathname, item.href)}
-              className={`text-sm font-medium ${isCurrent(pathname, item.href, active) ? "text-brand-deep" : "text-ink"}`}
+              className={`text-sm font-medium ${isCurrent(pathname, item.href, active) ? (onSkin ? "text-skin-deep" : "text-brand-deep") : onSkin ? "text-skin-ink" : "text-ink"}`}
               aria-current={isCurrent(pathname, item.href, active) ? "page" : undefined}
             >
               {item.label}
@@ -63,10 +66,10 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <a
-            href={demo}
-            className="hidden h-11 items-center rounded-full bg-brand px-4 text-sm font-semibold text-ink sm:inline-flex"
+            href={ctaHref}
+            className={`hidden h-11 items-center rounded-full px-4 text-sm font-semibold sm:inline-flex ${onSkin ? "bg-skin-deep text-paper" : "bg-brand text-ink"}`}
           >
-            Solicitar Demonstração
+            {ctaLabel}
           </a>
           <button
             type="button"
@@ -93,11 +96,11 @@ export function Header() {
             </a>
           ))}
           <a
-            href={demo}
-            className="mt-2 inline-flex h-11 items-center justify-center rounded-full bg-brand px-4 text-sm font-semibold text-ink"
+            href={ctaHref}
+            className={`mt-2 inline-flex h-11 items-center justify-center rounded-full px-4 text-sm font-semibold ${onSkin ? "bg-skin-deep text-paper" : "bg-brand text-ink"}`}
             onClick={() => setOpen(false)}
           >
-            Solicitar Demonstração
+            {ctaLabel}
           </a>
         </nav>
       ) : null}
@@ -107,12 +110,15 @@ export function Header() {
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const onSkin = useRouterState({ select: (state) => state.location.pathname === "/skincare" });
   return (
-    <footer className="bg-ink text-paper">
+    <footer className={onSkin ? "bg-[#3a2a24] text-paper" : "bg-ink text-paper"}>
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <img src="/media/logo-light.png" alt="Easvilson Business" className="h-10 w-auto" />
-          <p className="mt-4 max-w-sm text-sm text-line">{company.slogan}</p>
+          <p className="mt-4 max-w-sm text-sm text-line">
+            {onSkin ? "Catálogos de cuidado da pele. O preço e a disponibilidade confirmam-se no pedido." : company.slogan}
+          </p>
         </div>
         <div>
           <p className="text-sm font-semibold">Menu</p>
@@ -173,9 +179,11 @@ function WhatsAppIcon() {
 }
 
 export function WhatsAppFloat() {
+  const onSkin = useRouterState({ select: (state) => state.location.pathname === "/skincare" });
+  const text = onSkin ? "?text=" + encodeURIComponent("Olá. Quero encomendar produtos de skincare.") : "";
   return (
     <a
-      href={`https://wa.me/${company.whatsapp}`}
+      href={`https://wa.me/${company.whatsapp}${text}`}
       target="_blank"
       rel="noreferrer"
       aria-label="Falar no WhatsApp"
@@ -209,8 +217,10 @@ export function PageShell({ children }: { children: ReactNode }) {
     return () => observer.disconnect();
   }, [pathname]);
 
+  const onSkin = pathname === "/skincare";
+
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className={onSkin ? "min-h-screen bg-skin text-skin-ink" : "min-h-screen bg-paper text-ink"}>
       <a
         href="#conteudo"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-paper focus:px-4 focus:py-2"

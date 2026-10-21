@@ -11,6 +11,10 @@
   --color-brand: #7ac943;
   --color-brand-deep: #3e7c1c;
   --color-whatsapp: #128c7e;
+  --color-skin: #f6efe8;
+  --color-skin-ink: #2a211c;
+  --color-skin-deep: #8d4b3a;
+  --color-skin-line: #e4d5c8;
   --shadow-soft: 0 10px 30px rgb(22 22 22 / 0.06);
   --shadow-lift: 0 16px 40px rgb(22 22 22 / 0.08);
 }
