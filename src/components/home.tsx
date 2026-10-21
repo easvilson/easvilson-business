@@ -76,7 +76,7 @@ function RotatingBanner() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       setIndex((current) => (current + 1) % count);
-    }, 6000);
+    }, 15000);
     return () => window.clearInterval(id);
   }, [paused, count, index]);
 
