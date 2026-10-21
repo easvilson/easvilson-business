@@ -1,33 +1,10 @@
-# EASVILSON BUSINESS
+# Easvilson Business
 
-Website oficial da EASVILSON BUSINESS.
+Site institucional da Easvilson Business: AssiduPro, equipamentos, sites, software, aplicações Android e skincare.
 
-## Sobre
+```bash
+npm install
+npm run dev
+```
 
-Soluções tecnológicas para empresas, escolas e instituições em Angola:
-- Criação de Sites
-- Software Personalizado
-- APKs Personalizados
-- Sistema AssiduPro (Gestão de Presença)
-- Automação de Processos
-- Consultoria e Suporte Técnico
-
-**Localização:** Ondjiva – Cunene, Angola
-
-## Tecnologias
-
-- HTML5
-- CSS3
-- Design responsivo e moderno
-
-## Como usar
-
-Abra o ficheiro `index.html` no navegador ou faça deploy em qualquer hosting estático (GitHub Pages, Netlify, etc.).
-
-## Imagens
-
-Para completar o site, faça upload das seguintes imagens na pasta `images/`:
-- `foto-easvilson.jpg` (foto do fundador / banner)
-- `vest-design.png` (design do uniforme)
-
-As imagens foram preparadas com base no branding da empresa.
+O painel interno abre no computador com Ctrl+Shift+E (ou Cmd+Shift+E). As alterações ficam só no navegador.
