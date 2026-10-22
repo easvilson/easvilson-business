@@ -193,11 +193,11 @@ export const skincareCatalogs = [
     title: "Rosto",
     text: "Limpeza, tratamento e hidratação.",
     items: [
-      { name: "Limpeza facial", text: "Gel ou espuma para a lavagem diária." },
-      { name: "Tónico", text: "O passo a seguir à limpeza." },
-      { name: "Sérum", text: "Tratamento concentrado para o rosto." },
-      { name: "Hidratante", text: "Creme ou loção de dia e de noite." },
-      { name: "Contorno de olhos", text: "Cuidado da zona dos olhos." },
+      { name: "Limpeza facial", text: "Gel ou espuma para a lavagem diária.", image: "/media/skin-limpeza.jpg", alt: "Frasco de limpeza facial" },
+      { name: "Tónico", text: "O passo a seguir à limpeza.", image: "/media/skin-tonico.jpg", alt: "Frasco de tónico" },
+      { name: "Sérum", text: "Tratamento concentrado para o rosto.", image: "/media/skin-serum.jpg", alt: "Sérum em conta-gotas" },
+      { name: "Hidratante", text: "Creme ou loção de dia e de noite.", image: "/media/skin-hidratante.jpg", alt: "Creme hidratante e sérum" },
+      { name: "Contorno de olhos", text: "Cuidado da zona dos olhos.", image: "/media/skin-olhos.jpg", alt: "Creme para o contorno dos olhos" },
     ],
   },
   {
@@ -205,10 +205,10 @@ export const skincareCatalogs = [
     title: "Corpo",
     text: "Hidratação e cuidado da pele do corpo.",
     items: [
-      { name: "Gel de banho", text: "Limpeza suave para o duche." },
-      { name: "Loção corporal", text: "Hidratação depois do banho." },
-      { name: "Manteiga corporal", text: "Textura mais rica para a pele seca." },
-      { name: "Óleo corporal", text: "Acabamento leve na pele." },
+      { name: "Gel de banho", text: "Limpeza suave para o duche.", image: "/media/skin-banho.jpg", alt: "Gel de banho e esponja" },
+      { name: "Loção corporal", text: "Hidratação depois do banho.", image: "/media/skin-locao.jpg", alt: "Loção corporal com doseador" },
+      { name: "Manteiga corporal", text: "Textura mais rica para a pele seca.", image: "/media/skin-manteiga.jpg", alt: "Manteiga de karité" },
+      { name: "Óleo corporal", text: "Acabamento leve na pele.", image: "/media/skin-oleo.jpg", alt: "Óleos para o corpo" },
     ],
   },
   {
@@ -216,30 +216,30 @@ export const skincareCatalogs = [
     title: "Proteção",
     text: "Proteção para o dia a dia.",
     items: [
-      { name: "Protetor solar rosto", text: "Uso diário no rosto." },
-      { name: "Protetor solar corpo", text: "Proteção para braços, pernas e tronco." },
-      { name: "Bálsamo labial", text: "Proteção dos lábios." },
+      { name: "Protetor solar rosto", text: "Uso diário no rosto.", image: "/media/skin-solar-rosto.jpg", alt: "Spray de proteção solar" },
+      { name: "Protetor solar corpo", text: "Proteção para braços, pernas e tronco.", image: "/media/skin-solar-corpo.jpg", alt: "Protetores solares na praia" },
+      { name: "Bálsamo labial", text: "Proteção dos lábios.", image: "/media/skin-labial.jpg", alt: "Bálsamos labiais" },
     ],
   },
 ] as const;
 
 export const skincareBanners = [
   {
-    image: "/media/skin-rosto.jpg",
+    image: "/media/skin-banner-rosto.jpg",
     alt: "Produtos de skincare para o rosto: limpeza, sérum e hidratante",
     title: "Rosto",
     text: "Limpeza, sérum e hidratação.",
     fit: "cover",
   },
   {
-    image: "/media/skin-corpo.jpg",
+    image: "/media/skin-banner-corpo.jpg",
     alt: "Produtos de skincare para o corpo: loção, óleo e manteiga",
     title: "Corpo",
     text: "Loção, óleo e manteiga corporal.",
     fit: "cover",
   },
   {
-    image: "/media/skin-protecao.jpg",
+    image: "/media/skin-banner-protecao.jpg",
     alt: "Protetor solar em tubo e spray",
     title: "Proteção",
     text: "Proteção para o rosto e para o corpo.",

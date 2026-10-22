@@ -45,7 +45,8 @@ function SkincarePage() {
               <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {catalog.items.map((item) => (
                   <li key={item.name} className="flex flex-col rounded-3xl border border-skin-line bg-paper p-5 shadow-soft">
-                    <h3 className="font-display text-lg font-semibold">{item.name}</h3>
+                    <img src={item.image} alt={item.alt} className="aspect-4/3 w-full rounded-2xl object-cover" />
+                    <h3 className="mt-4 font-display text-lg font-semibold">{item.name}</h3>
                     <p className="mt-2 flex-1 text-sm text-[#5c4a42]">{item.text}</p>
                     <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-skin-deep">Sob consulta</p>
                     <a
